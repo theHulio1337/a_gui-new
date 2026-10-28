@@ -1,0 +1,140 @@
+--[[local maskSource = [[
+
+	texture MaskTexture;
+	sampler implicitMaskTexture = sampler_state
+	{
+		Texture = <MaskTexture>;
+	};
+
+
+	float4 MaskTextureMain( float2 uv : TEXCOORD0 ) : COLOR0
+	{
+
+		float4 sampledTexture = float4(1, 1, 1, 0);
+
+		float4 maskSampled = tex2D( implicitMaskTexture, uv );
+
+		sampledTexture.a = (maskSampled.r + maskSampled.g + maskSampled.b) / 3.0f;
+
+		return sampledTexture;
+	}
+
+	technique Technique1
+	{
+		pass Pass1
+		{
+			PixelShader = compile ps_2_0 MaskTextureMain();
+		}
+	}
+
+]]
+
+--[[local faCache = {}
+function getFaIconFilename(icon, size, style)
+    style = style or "solid"
+    local fileName = ":sm_gui/faicons/" .. table.concat({icon, size, style}, "-") .. ".png"
+    if not faCache[fileName] then
+		faCache[fileName] = fileExists(fileName)
+
+		if not faCache[fileName] then
+			local font = dxCreateFont("fa/" .. style .. ".otf", size + math.min(0, size - 1000)/65)
+			iprint(size + math.min(0, size - 1000)/65, size)
+			local rt = dxCreateRenderTarget(size, size, true)
+			local rt2 = dxCreateRenderTarget(size, size, true)
+			local shader = dxCreateShader(maskSource)
+			if isElement(rt) then
+				dxSetShaderValue(shader, "MaskTexture", rt2)
+
+				dxSetRenderTarget(rt2, true)
+				dxSetBlendMode("modulate_add")
+				dxDrawRectangle(0, 0, size, size, tocolor(0, 0, 0))
+				dxDrawText(utf8.char(tonumber("0x" .. faIcons[icon].unicode)), 0, 0, size, size, tocolor(255, 255, 255), 1, font, "center", "center")
+				dxSetRenderTarget(rt, true)
+				dxSetBlendMode("overwrite")
+				dxDrawImage(0, 0, size, size, shader)
+				dxSetBlendMode("blend")
+				dxSetRenderTarget()
+			end
+			local pixels = dxGetTexturePixels(rt)
+
+			if isElement(rt) then
+				destroyElement(rt)
+			end
+			rt = nil
+			
+			if isElement(rt2) then
+				destroyElement(rt2)
+			end
+			rt2 = nil
+			
+			if isElement(shader) then
+				destroyElement(shader)
+			end
+			shader = nil
+			
+			destroyElement(font)
+			font = nil
+
+			if pixels then
+				pixels = dxConvertPixels(pixels, "png", 100)
+				local file = fileCreate(fileName)
+				fileWrite(file, pixels)
+				fileClose(file)
+
+				pixels = nil
+			end 
+			collectgarbage("collect")
+		end 
+	end
+	return fileName
+end]]
+
+--[[function getFaIconFilename(icon, size, style)
+    style = style or "solid"
+    local fileName = ":sm_gui/faicons/" .. table.concat({icon, size, style}, "-") .. ".png"
+    if not faCache[fileName] then
+		faCache[fileName] = fileExists(fileName)
+
+		if not faCache[fileName] then
+			local svgElement = svgCreate(size, size, faIcons[icon].svg[style].raw)
+			if svgElement then
+				svgSetSize(svgElement, size, size)
+				local svgXML = svgGetDocumentXML(svgElement)
+				xmlNodeSetAttribute(svgXML, "fill", "#ffffff")
+				xmlNodeSetAttribute(svgXML, "x", "0")
+				xmlNodeSetAttribute(svgXML, "y", "0")
+				xmlNodeSetAttribute(svgXML, "width", "100%")
+				xmlNodeSetAttribute(svgXML, "height", "100%")
+				svgSetDocumentXML(svgElement, svgXML)
+				local rt = dxCreateRenderTarget(size, size, true)
+				if isElement(rt) then
+					dxSetRenderTarget(rt, true)
+					dxSetBlendMode("modulate_add")
+					dxDrawImage(0, 0, size, size, svgElement, 0, 0, 0, tocolor(255, 255, 255), false)
+					dxSetBlendMode("blend")
+					dxSetRenderTarget()
+				end
+
+				local pixels = dxGetTexturePixels(svgElement)
+				if isElement(rt) then
+					destroyElement(rt)
+				end
+				rt = nil
+
+				destroyElement(svgElement)
+				svgElement = nil
+	
+				if pixels then
+					pixels = dxConvertPixels(pixels, "png", 100)
+					local file = fileCreate(fileName)
+					fileWrite(file, pixels)
+					fileClose(file)
+	
+					pixels = nil
+				end 
+				collectgarbage("collect")
+			end
+		end
+	end
+	return fileName
+end]]

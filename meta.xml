@@ -1,0 +1,187 @@
+<meta>
+    <download_priority_group>99999999999</download_priority_group>
+    
+    <script src="mainC.lua" type="client" cache="false" />
+    <script src="mainS.lua" type="server" />
+    
+    <script src="schemesC.lua" type="client" cache="false" />
+    <script src="drawC.lua" type="client" cache="false" />
+    <script src="gradientC.lua" type="client" cache="false" />
+    <script src="labelC.lua" type="client" cache="false" />
+    <script src="buttonC.lua" type="client" cache="false" />
+    <script src="inputC.lua" type="client" cache="false" />
+    <script src="fontawesomeC.lua" type="client" cache="false" />
+    <script src="fontC.lua" type="client" cache="false" />
+    <script src="checkboxC.lua" type="client" cache="false" />
+    <script src="logoC.lua" type="client" cache="false" />
+    <script src="alertC.lua" type="client" cache="false" />
+    <script src="sliderC.lua" type="client" cache="false" />
+    <script src="guipreviewC.lua" type="client" cache="false" />
+
+    
+    <file src="fa/brands.otf" />
+    <file src="fa/duotone.otf" />
+    <file src="fa/icons.json" />
+    <file src="fa/light.otf" />
+    <file src="fa/regular.otf" />
+    <file src="fa/solid.otf" />
+    
+    <file src="fonts/Poppins-Regular.ttf" />
+    <file src="fonts/Poppins-Bold.ttf" />
+    <file src="fonts/Poppins-SemiBold.ttf" />
+    <file src="fonts/Poppins-Medium.ttf" />
+    <file src="fonts/Poppins-Light.ttf" />
+    <file src="fonts/Pricedown.otf" />
+    <file src="fonts/BebasNeueBold.otf" />
+    <file src="fonts/BebasNeueLight.otf" />
+    <file src="fonts/BebasNeueRegular.otf" />
+    
+    <file src="sounds/asay.wav" />
+    <file src="sounds/click1.wav" />
+    <file src="sounds/click2.wav" />
+    <file src="sounds/click3.wav" />
+    <file src="sounds/duty.wav" />
+    <file src="sounds/error.wav" />
+    <file src="sounds/h1.wav" />
+    <file src="sounds/h2.wav" />
+    <file src="sounds/h3.wav" />
+    <file src="sounds/h4.wav" />
+    <file src="sounds/hover.wav" />
+    <file src="sounds/noti.wav" />
+    <file src="sounds/offduty.wav" />
+    <file src="sounds/selectdone.wav" />
+    <file src="sounds/success.wav" />
+    <file src="sounds/warning.wav" />
+    
+    <file src="files/logos/32_1.png" />
+    <file src="files/logos/32_2.png" />
+    <file src="files/logos/32_a.png" />
+    <file src="files/logos/32_s.png" />
+    <file src="files/logos/32_t.png" />
+    <file src="files/logos/64_1.png" />
+    <file src="files/logos/64_2.png" />
+    <file src="files/logos/64_a.png" />
+    <file src="files/logos/64_s.png" />
+    <file src="files/logos/64_t.png" />
+    <file src="files/logos/128_1.png" />
+    <file src="files/logos/128_2.png" />
+    <file src="files/logos/128_a.png" />
+    <file src="files/logos/128_s.png" />
+    <file src="files/logos/128_t.png" />
+    <file src="files/logos/256_1.png" />
+    <file src="files/logos/256_2.png" />
+    <file src="files/logos/256_a.png" />
+    <file src="files/logos/256_s.png" />
+    <file src="files/logos/256_t.png" />
+    <file src="files/logos/512_1.png" />
+    <file src="files/logos/512_2.png" />
+    <file src="files/logos/512_a.png" />
+    <file src="files/logos/512_s.png" />
+    <file src="files/logos/512_t.png" />
+    <file src="files/logos/1024_1.png" />
+    <file src="files/logos/1024_2.png" />
+    <file src="files/logos/1024_a.png" />
+    <file src="files/logos/1024_s.png" />
+    <file src="files/logos/1024_t.png" />
+    <file src="files/logos/2048_1.png" />
+    <file src="files/logos/2048_2.png" />
+    <file src="files/logos/2048_a.png" />
+    <file src="files/logos/2048_s.png" />
+    <file src="files/logos/2048_t.png" />
+    
+    <export function="createGuiElement" type="client" />
+    
+    <export function="getGuiPriority" type="client" />
+    <export function="getGuiRealPosition" type="client" />
+    
+    <export function="setGuiParent" type="client" />
+    <export function="setGuiMoveable" type="client" />
+    <export function="setGuiTooltip" type="client" />
+    
+    <export function="getGuiChilds" type="client" />
+    <export function="getGuiChildsAll" type="client" />
+    
+    <export function="guiToFront" type="client" />
+    <export function="guiToBack" type="client" />
+    
+    <export function="setGuiBackground" type="client" />
+    <export function="setGuiHover" type="client" />
+    
+    <export function="setClickEvent" type="client" />
+    <export function="setHoverEvent" type="client" />
+    <export function="setClickSound" type="client" />
+    
+    <export function="setGuiPositionAnimated" type="client" />
+    <export function="setGuiSizeAnimated" type="client" />
+    <export function="setGuiAlphaAnimated" type="client" />
+    
+    <export function="setGuiPositionAnimatedOnChilds" type="client" />
+    <export function="setGuiSizeAnimatedOnChilds" type="client" />
+    <export function="setGuiAlphaAnimatedOnChilds" type="client" />
+    
+    <export function="setGuiPosition" type="client" />
+    <export function="setGuiSize" type="client" />
+    <export function="setGuiAlpha" type="client" />
+    <export function="getGuiPosition" type="client" />
+    <export function="getGuiSize" type="client" />
+    
+    <export function="setGuiRenderDisabled" type="client" />
+    <export function="isGuiRenderDisabled" type="client" />
+    
+    <export function="setLabelText" type="client" />
+    <export function="setLabelFont" type="client" />
+    <export function="setLabelAlignment" type="client" />
+    <export function="getLabelTextWidth" type="client" />
+    <export function="getLabelFontHeight" type="client" />
+    <export function="setLabelWordBreak" type="client" />
+    <export function="setLabelRotation" type="client" />
+    <export function="setLabelColor" type="client" />
+    <export function="setLabelClip" type="client" />
+    <export function="setLabelShadow" type="client" />
+    
+    <export function="setButtonFont" type="client" />
+    <export function="setButtonTextColor" type="client" />
+    <export function="setButtonText" type="client" />
+    <export function="setButtonTextPadding" type="client" />
+    <export function="setButtonTextAlign" type="client" />
+    <export function="setButtonIconColor" type="client" />
+    <export function="setButtonIcon" type="client" />
+    
+    <export function="setInputPlaceholder" type="client" />
+    <export function="setInputValue" type="client" />
+    <export function="setInputFont" type="client" />
+    <export function="setInputIcon" type="client" />
+    <export function="setInputMaxLength" type="client" />
+    <export function="setInputChangeEvent" type="client" />
+    <export function="setInputNumberOnly" type="client" />
+    <export function="setInputColor" type="client" />
+    <export function="setInputPassword" type="client" />
+    <export function="setInputType" type="client" />
+    <export function="getInputValue" type="client" />
+    <export function="getActiveInput" type="client" />
+    <export function="setActiveInput" type="client" />
+    
+    <export function="setImageFile" type="client" />
+    <export function="setImageColor" type="client" />
+    
+    <export function="getFaIconFilename" type="client" />
+    
+    <export function="createAlert" type="client" />
+    <export function="createAlert" type="server" />
+    
+    <export function="isCheckboxChecked" type="client" />
+    <export function="setCheckboxChecked" type="client" />
+    <export function="setCheckboxIcon" type="client" />
+    <export function="setCheckboxFont" type="client" />
+    <export function="setCheckboxText" type="client" />
+    
+    <export function="setSliderChangeEvent" type="client" />
+    <export function="getSliderValue" type="client" />
+    <export function="setSliderValue" type="client" />
+    <export function="setSliderColor" type="client" />
+    
+    <export function="getColorSchemes" type="client" />
+    
+    <export function="getFont" type="client" />
+    <min_mta_version server="1.3.4-0.00000" client="1.5.6-9.18728"></min_mta_version>
+</meta>
